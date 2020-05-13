@@ -1,5 +1,5 @@
 object AnnoDomini {
     def main(args: Array[String]): Unit = {
-      println("Wilkommen bei Domini!!!")
+      println("Wilkommen bei AnnoDomini!!!")
     }
 }

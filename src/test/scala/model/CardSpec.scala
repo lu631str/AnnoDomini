@@ -1,4 +1,4 @@
-class CardSpec extends {
+
 
   /*
   a card
@@ -11,4 +11,4 @@ class CardSpec extends {
 
    */
 
-}
+

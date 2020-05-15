@@ -1,3 +1,5 @@
+package model
+
 class FieldSpec {
 /*
   the field
@@ -14,8 +16,8 @@ class FieldSpec {
    Player2:
    Card1: text,  Card2: text,  Card3: text
 
-   Field:
-     Card1: text,  Card: text, Card: text
+   model.Field:
+     Card1: text,  model.Card: text, model.Card: text
 
    Current Player: Player1
    what do you wanna do?

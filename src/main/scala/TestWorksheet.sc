@@ -27,6 +27,9 @@ sum(2.4, 1.7)
 
 // testCards.foreach(println())
 testCards.foreach(println)
-testCards.foreach(_.text)
+testCards.foreach(_.look)
+
+
+
 
 

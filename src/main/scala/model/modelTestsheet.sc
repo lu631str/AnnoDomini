@@ -1,4 +1,4 @@
-import  model._
+import model.Card
 
 var i = 20
 

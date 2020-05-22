@@ -1,4 +1,4 @@
-import  model._
+import model.Card
 
 var i = 20
 
@@ -19,11 +19,19 @@ val card3 = Card("Card3", 3)
 val testCards = List[model.Card](card1, card2, card3)
 
 
+case class Player(name: String, cards: List[Card]) {
+  override def toString:String = name
+}
 
+
+val player1 = Player("Lukas", List(card1, card2))
+
+  val test = player1.cards
+  print(test)
 // testCards.foreach(println())
 // I actually just want it to show the text part of the card in order,
 // but putting the funktioni into the foreach doesn't work as expected
-testCards.foreach(println)
-testCards.foreach(_.look)
+//testCards.foreach(println)
+//testCards.foreach(_.look)
 
 

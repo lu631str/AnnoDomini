@@ -9,6 +9,7 @@ a
 
 val card1 = Card("bla", 1)
 
+val list = (1, 2, 3)
 
 card1.look
 card1.reveal

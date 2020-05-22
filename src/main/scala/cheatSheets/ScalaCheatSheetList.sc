@@ -23,6 +23,6 @@ list(2)  // returns 3, like Array
 // list(2) = 3  // throws error, because List is immutable
 
 list match{
-  case Nil => 1
+  case Nil => 1    // match is basically a switch case
   case h::t => t  // automatically recognizes h as head and t as tail
 }

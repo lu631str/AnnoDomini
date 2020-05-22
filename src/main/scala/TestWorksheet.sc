@@ -35,3 +35,12 @@ val player1 = Player("Lukas", List(card1, card2))
 //testCards.foreach(_.look)
 
 
+
+
+
+
+
+
+
+
+

@@ -60,3 +60,12 @@ case class Field(cards:List[Card], players:List[Player]){
 //testCards.foreach(_.look)
 
 
+
+
+
+
+
+
+
+
+

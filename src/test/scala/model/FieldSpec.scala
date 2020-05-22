@@ -6,6 +6,7 @@ class FieldSpec extends WordSpec with Matchers {
     "new" should {
       "have a collection of ordered cards" in{
 
+
       }
       "have at least one player" in{
 

@@ -26,7 +26,5 @@ import org.scalatest._
       player.toString should be("Your Name")
     }
   }}
-
-
 }
 */

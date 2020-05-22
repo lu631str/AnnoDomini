@@ -1,6 +1,25 @@
 package model
+import org.scalatest._
 
-class FieldSpec {
+class FieldSpec extends WordSpec with Matchers {
+  "Field is the basic playing field" when{
+    "new" should {
+      "have a collection of ordered cards" in{
+
+
+      }
+      "have at least one player" in{
+
+      }
+      "have a method place, which places a players card on the table" in {
+
+      }
+      "have a method check, which checks whether the card.dates are in the right order" in{
+
+      }
+
+    }
+  }
 /*
   the field
   has laid down cards,

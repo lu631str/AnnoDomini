@@ -37,7 +37,7 @@ val time = "10:30"
 val hours = time.substring(0, time.indexOf(':')).toInt
 
 // easier spliting:
-name.split(" ")  // takes a regex as parameter!
+name.split(" +")  // takes a regex as parameter!
 time.split(":")
 //returns an Array of substings,
 // spiltted at the given symbol/regex
@@ -47,3 +47,7 @@ val spaces = "     Hi there!     "
 spaces.trim()
 name.substring(name.indexOf(' ')).trim // removes the space from the beginning without the need of adapting the index
 
+// String Collections:
+// String is a subset of Collections, therefore the Collectionmethods explained in Array and List also work on Strings:
+// count vowels:
+string.count(c => "aeiou".contains(c))

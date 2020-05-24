@@ -42,11 +42,8 @@ time.split(":")
 //returns an Array of substings,
 // spiltted at the given symbol/regex
 
-
 // trim: remove spaces at the beginning and end of a string
 val spaces = "     Hi there!     "
 spaces.trim()
 name.substring(name.indexOf(' ')).trim // removes the space from the beginning without the need of adapting the index
-
-
 

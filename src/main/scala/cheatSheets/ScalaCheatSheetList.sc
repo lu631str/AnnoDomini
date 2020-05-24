@@ -9,7 +9,6 @@ val list = List(1, 2, 3, 8)
 val list2 = 1::2::3::4::Nil
 val list3 = List.fill(5)(0)
 
-
 // basic Functions
 list.head // 1
 list.tail // (2, 3, 8)

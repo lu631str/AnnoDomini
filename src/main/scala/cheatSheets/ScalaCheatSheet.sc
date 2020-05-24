@@ -7,7 +7,6 @@ mutable = 5 // is allowed
 val inmutable = 3
 // inmutable = 4  // causes error
 
-
 // Functions
 def sum (x:Double, y:Double) = x + y
 sum(2, 3)
@@ -40,7 +39,3 @@ combine(1,2,4, (x,y)=>x+y)  // f is a newly defined func
 combine(1,2,4, _+_)  // defining a new f with wildcards
 // the three instanaces above do the same thing.
 combine(1,2,4,_*_)
-
-
-
-

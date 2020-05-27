@@ -26,6 +26,7 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]){
   // has to allow a player to place a card
 
   // has to be able to check a if the card order is correct
+  //def checkCardOrder = cards.
 }
 
 val builder = new DeckBuilder
@@ -43,18 +44,3 @@ table.showCards
 table.pDraw.showCards
 table.pDraw(3).pDraw(2).showCards
 
-/*
-val field = Field(testDeck(5)::Nil, player1::player2::Nil)
-field.cards
-field.players
-
-field.showCards
-field.showPlayers
-field.showPlayerCards
-*/
-
-// testCards.foreach(println())
-// I actually just want it to show the text part of the card in order,
-// but putting the funktioni into the foreach doesn't work as expected
-//testCards.foreach(println)
-//testCards.foreach(_.look)

@@ -4,9 +4,9 @@ import scala.util.Random
 
 case class Deck(deck:List[Card]){
 
-  def draw: (Card, List[Card]) = (deck.head, deck.tail)
+  def draw: (Card, Deck) = (deck.head, Deck(deck.tail))
   // TODO: overload draw with a method, that allows to draw several cards at once
-  def draw(x:Int): (List[Card], List[Card]) = deck.splitAt(x)
+  def draw(x:Int): (List[Card], List[Card]) = (deck.splitAt(x)._1, deck.splitAt(x)._2)
 
   def shuffle: Deck = Deck(Random.shuffle(deck))
 

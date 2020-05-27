@@ -7,11 +7,11 @@ object AnnoDomini {
       val card2 = Card("Anfang zweiter Weltkrieg", 1939)
 
       // generate deck
-      val testDeck = new DeckBuilder
+      val deckBuilder = new DeckBuilder
 
-      // for now lets just make 10 cards,
+      // for now lets just make 9 cards,
       // with the dates 1-5 and text being "Card1" to "Card10"
-
+      val deck = deckBuilder.buildDeck
 
       // we probably could realize a complete deck by typing the cardvalues into a txt document
       // and using a function to translate the string into cards

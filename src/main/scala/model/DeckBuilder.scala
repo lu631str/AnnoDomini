@@ -17,5 +17,5 @@ class DeckBuilder{
   // create deck from Textfiles
 
   // build deck:
-  def buildDeck : Deck = Deck(deckGen(9, Nil))
+  def buildDeck : List[Card] = deckGen(9, Nil)
 }

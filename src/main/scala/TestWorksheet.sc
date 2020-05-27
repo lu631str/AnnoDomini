@@ -3,37 +3,38 @@ import model._
 import scala.util.Random
 
 case class Player(name: String, hand: List[Card]) {
-  def showCards = hand.foreach(card => s"$card")
-  def showPlayer = s"$name"
   override def toString:String = name
+  def selectCard(x:Int) = (hand(x-1), Player(name, hand.patch(x-1, Nil, 1)))
+  def showHand = name + ":\n" + hand.mkString(", ")
+  def addCard(c: Card) = Player(name, c :: hand)
+  def addCard(c: List[Card]) = Player(name, c ::: hand)
 }
 
 
-case class Field(cards:List[Card], players:List[Player]){
+case class Table(cards:List[Card], players:List[Player], deck:List[Card]){
   // Has to display cards
-  def showCards = cards.foreach(c => println(c))
-  // has to display players
-  def showPlayers = players.foreach(p => println(s"$p" + p.showCards))
-  def showPlayerCards = players.foreach(p => p.showCards)
+  def showCards = "Feld:\n" + cards.mkString(", ") + "\n" + players.map(p => p.showHand)
+  // player draws:
+  def pDraw = Table(cards, players.head.addCard(deck.head) :: players.tail, deck.tail)
+  def pDraw(x:Int) = Table(cards, players.head.addCard(deck.splitAt(x-1)._1) :: players.tail, deck.splitAt(x-1)._2)
+  //def showPlayerCards = players.foreach(p => p.showCards)
   // has to allow a player to place a card
 
   // has to be able to check a if the card order is correct
 }
+
 val builder = new DeckBuilder
 val deck = builder.buildDeck
 
-deck.deck
-deck.draw
-deck.draw(2)
+val p = Player("p1", deck.splitAt(3)._1)
+p.showHand
+p.addCard(deck.head).showHand
+p.addCard(deck.splitAt(2)._1).showHand
 
-
-val deck2 = deck.shuffle
-deck2.deck
-
-val player = Player("p1", deck.draw(2)._1)
-player.hand
-
-
+val table = Table(deck.head::Nil, Player("p1", Nil)::Nil, deck.tail)
+table.showCards
+table.pDraw.showCards
+table.pDraw(3).showCards
 /*
 val field = Field(testDeck(5)::Nil, player1::player2::Nil)
 field.cards

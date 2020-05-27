@@ -1,10 +1,15 @@
 import model._
+import java.nio.file.Paths
 
 object AnnoDomini {
     def main(args: Array[String]): Unit = {
       println("Wilkommen bei AnnoDomini!!!")
       val card1 = Card("Mauerfall", 1989)
       val card2 = Card("Anfang zweiter Weltkrieg", 1939)
+      val path = System.getProperty("user.dir")
+      val absPath =Paths.get("")
+      println(path)
+      println(absPath.toAbsolutePath)
 
       // generate deck
       def deckGen(v:Int, deck:List[Card]): List[Card] = {
@@ -23,7 +28,7 @@ object AnnoDomini {
       // and using a function to translate the string into cards
       // generate players
       // so we definetly need a way to input
-      val player1 = Player("Lukas", (testDeck(1)::testDeck(4)::Nil))
+      val player1 = Player("Lukas", testDeck(1)::testDeck(4)::Nil)
       println("Hello, " + player1.name)
       // ask for second player
       // val player2 = Player("Sarah", )

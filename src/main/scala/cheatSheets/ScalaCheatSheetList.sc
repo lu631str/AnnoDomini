@@ -28,6 +28,16 @@ list match{
   case h::t => t  // automatically recognizes h as head and t as tail
 }
 
+// turn a list into an array
+val array = Array.fill(list.length)(0)
+// overides array from index 2 on, starts from start of the list
+list.copyToArray(array, 2) // returns amount of copied elements
+array
+list.copyToArray(array, 1,2) // overides array from index 1 to 2, starts from start of the list
+array
+list.copyToArray(array) // overrides full array.
+array
+
 // there are several methods that can be used on both list and array
 // I put the examples for those into the Array CheatSheet, please
 // check it for further information

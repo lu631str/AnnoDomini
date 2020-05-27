@@ -14,7 +14,7 @@ can display the date (with the text?)
 // to ignore a  test change the 'in' into 'ignore'
 // the test will be ignored but the coverage will be registered
 
-class CardSpec extends WordSpec  with Matchers{
+class CardSpec extends WordSpec with Matchers{
   // Note the Matcher connotation is outdated,
   // it will still work but it will throw warnings
   // TODO: look up new proper syntax for the Matchers

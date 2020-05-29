@@ -92,6 +92,9 @@ array1.patch(3, List(8), 1)  // Array(1, 7, 1, 8, 5), replaced value at 4 with 8
 array1.patch(3, List(8), 2)  // Array(1, 7, 1, 8), replaced value at 3 with 8 and removed the values after that
 array1.patch(3, List(8, 9), 1)  // Array(1, 7, 1, 8, 9, 5)
 array1.patch(3, List(8, 9), 2)  // Array(1, 7, 1, 8, 9)
+array1
+array1.patch(0, List(10), 0)
+
 
 // reverse a list/array
 array1.reverse

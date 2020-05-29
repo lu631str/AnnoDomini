@@ -46,6 +46,7 @@ list.zipWithIndex
 
 // Higher order methods: (Those also work on arrays!!!!)
 // use the given function on every element of the list
+list
 list.map(_*2)
 list.map(i => i*2)
 list.map(i => i / 0.5)

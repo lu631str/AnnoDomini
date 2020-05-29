@@ -16,7 +16,8 @@ case class Player(name: String, hand: List[Card]) {
 
 case class Table(cards:List[Card], players:List[Player], deck:List[Card]){
   // Has to display cards
-  def showCards = "Feld:\n" + cards.mkString(", ") + "\n" + players.map(p => p.showHand)
+  def showCards = "Feld:\n" +
+      cards.mkString(", ") + "\n" + players.map(p => p.showHand).mkString("\n")
   // player draws:
   def pDraw = Table(
     cards,
@@ -29,6 +30,7 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]){
   def placeCard(idxs: Int, idxd: Int) = Table(
     cards.patch(idxd, List(players.head.removeCard(idxs)._1),0),
     players.tail:::players.head.removeCard(idxs)._2::Nil, deck)
+
   //def showPlayerCards = players.foreach(p => p.showCards)
   // has to allow a player to place a card
 
@@ -49,4 +51,3 @@ table.showCards
 table.pDraw.showCards
 table.pDraw(3).showCards
 table.pDraw.pDraw.placeCard(0,1)
-

@@ -21,5 +21,5 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]){
   // has to allow a player to place a card
 
   // has to be able to check a if the card order is correct
-  //def checkCardOrder = cards.
+  def checkCardOrder: Boolean = cards.head.date < cards.tail.head.date
 }

@@ -22,10 +22,14 @@ object AnnoDomini {
       val scanner = new Scanner(System.in)
       var card = scanner.nextInt
       println("where do you want to place it?")
-      var y = scanner.nextInt
+      var place = scanner.nextInt
       // generate a field, which takes a random card from the deck
-
-
+      println(table.placeCard(card, place).showCards)
+      if(table.placeCard(card, place).checkCardOrder){
+        println("Gewonnen!")
+      } else{
+        println("Verloren.")
+      }
     }
 
 }

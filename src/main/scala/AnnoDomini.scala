@@ -23,7 +23,8 @@ object AnnoDomini {
       var card = scanner.nextInt
       println("where do you want to place it?")
       var y = scanner.nextInt
-      // generate a field, which takes a random card from the deck
+
+      println(table.placeCard(card, y).showCards)
 
 
     }

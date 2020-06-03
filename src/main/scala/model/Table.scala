@@ -1,6 +1,8 @@
 package model
 
 case class Table(cards:List[Card], players:List[Player], deck:List[Card]){
+  def apply(cards: List[Card], value: List[Player]): Table = ???
+
   // Has to display cards
   def showCards = "Feld:\n" +
     cards.mkString(", ") + "\n" + players.map(p => p.showHand).mkString("\n")

@@ -51,3 +51,5 @@ table.showCards
 table.pDraw.showCards
 table.pDraw(3).showCards
 table.pDraw.pDraw.placeCard(0,1)
+
+

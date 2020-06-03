@@ -3,6 +3,7 @@ package util
 class TestObject extends Observer {
   def update:Unit = println("Ping")
 }
+
 object ObserverPattern {
   val observable = new Observable                 //> observable  : de.htwg.util.Observable = de.htwg.util.Observable@23394894
   val observer1 = new TestObject                  //> observer1  : TestObject = TestObject@630045eb
@@ -16,4 +17,3 @@ object ObserverPattern {
   observable.remove(observer2)
   observable.notifyObservers
 }
-

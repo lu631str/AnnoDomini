@@ -46,7 +46,9 @@ p.showHand
 p.addCard(deck.head).showHand
 p.addCard(deck.splitAt(2)._1).showHand
 
-val table = Table(deck.head::Nil, Player("p1", Nil)::Nil, deck.tail)
+val table = Table(
+  deck.head::Nil,
+  Player("p1", Nil)::Nil, deck.tail)
 table.showCards
 table.pDraw.showCards
 table.pDraw(3).showCards

@@ -1,7 +1,7 @@
 package model
 
 case class Player(name: String, hand: List[Card]) {
-  override def toString:String = name
+  override def toString:String = name + hand.mkString(", ")
   def selectCard(x:Int) =
     (hand(x-1), Player(name, hand.patch(x-1, Nil, 1)))
   def showHand = name + ":\n" + hand.mkString(", ") + "\n"

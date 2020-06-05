@@ -6,10 +6,6 @@ import util._
 
 class Controller(var table:Table) extends Observable {
 
-  def createEmptyTable(size: Int):Unit = {
-    table = Table(Nil, Nil, Nil)
-    notifyObservers
-  }
 
   def createRandomTable(players:Int):Unit = {
     val db = new DeckBuilder

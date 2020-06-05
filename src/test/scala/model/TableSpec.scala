@@ -1,15 +1,18 @@
 package model
 import org.scalatest._
 
-class FieldSpec extends WordSpec with Matchers {
+class TabledSpec extends WordSpec with Matchers {
   "Field is the basic playing field" when{
     "new" should {
+      val table = new Table(List(Card("Test1", 1800)), List(Player("player 1", List(Card("Test2", 1802)))),List(Card("Test2", 1802)))
       "have a collection of ordered cards" in{
-
-
+      table.cards should be (List(Card("Test1", 1800)))
+        table.cards.isInstanceOf[List[Card]] should be (true)
       }
       "have at least one player" in{
-
+        table.players should be (List(Player("player 1", List(Card("Test2", 1802)))))
+        table.players.isInstanceOf[List[Player]] should be (true)
+        table.players should not equal(Nil)
       }
       "have a method place, which places a players card on the table" in {
 

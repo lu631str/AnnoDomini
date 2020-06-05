@@ -1,4 +1,4 @@
-package model
+/*package model
 import org.scalatest._
 
 /*
@@ -11,18 +11,23 @@ import org.scalatest._
 class DeckSpeck extends WordSpec with Matchers {
   "A Deck contains playable cards" when{
     "new" should {
-      val deck = Deck
+      val deck = Deck(List(Card("Test1", 1801), Card("Test2", 1802), Card("Test3", 1803), Card("Test4", 1804), Card("Test5", 1805),Card("Test6", 1806)
+      ,Card("Test7", 1807),Card("Test8", 1808),Card("Test9", 1809),Card("Test10", 1810)))
+
       "have a list of cards" in{
-        // check list type
+       deck.deck should be (List(Card("Test1", 1801), Card("Test2", 1802), Card("Test3", 1803), Card("Test4", 1804), Card("Test5", 1805),Card("Test6", 1806)
+         ,Card("Test7", 1807),Card("Test8", 1808),Card("Test9", 1809),Card("Test10", 1810)))
+         deck.deck.isInstanceOf[List[Card]] should be(true)
       }
       "have a method shuffle" in{
-        // use shuffle
-        // the new deck has to have the same length as the old one
-        // the new deck has to be different from the old one
-        // to ensure randomness shuffle 10 times, then compare them
-        // they should all be different from one another
+        deck.shuffle.deck.size should be (10)
+        deck.shuffle.shuffle.shuffle should not equal  (List(Card("Test1", 1801), Card("Test2", 1802), Card("Test3", 1803), Card("Test4", 1804), Card("Test5", 1805),Card("Test6", 1806)
+          ,Card("Test7", 1807),Card("Test8", 1808),Card("Test9", 1809),Card("Test10", 1810)))
+
+
       }
       "have a method draw" in{
+        deck.draw
         // use draw
         // the newDeck.length = oldDeck.length -1
         // newDeck = oldDeck.tail
@@ -31,3 +36,5 @@ class DeckSpeck extends WordSpec with Matchers {
   }
 
 }
+
+*/

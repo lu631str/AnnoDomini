@@ -10,7 +10,7 @@
 package model
 
 import org.scalatest._
- //import scala.util.control.Breaks
+
 
 class PlayerSpec extends WordSpec with Matchers {
   "A Player" when {
@@ -20,8 +20,10 @@ class PlayerSpec extends WordSpec with Matchers {
       "have a name" in {
         player.name should be("Your Name")
         player.name.isInstanceOf[String] should be(true)
+
       }
       "have a hand" in {
+        player.hand should be(List(Card("Test", 1800)))
         player.hand.isInstanceOf[List[Card]] should be(true)
       }
       "add a Card" in {

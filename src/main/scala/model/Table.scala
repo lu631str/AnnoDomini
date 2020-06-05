@@ -25,5 +25,16 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]){
   // has to allow a player to place a card
 
   // has to be able to check a if the card order is correct
-  def checkCardOrder: Boolean = cards.head.date < cards.tail.head.date
+  def checkCardOrder: Boolean = {
+    val sortedList = cards.sortWith(_.date<_.date)
+    if(sortedList.equals(cards)){
+      print("you won!\n")
+      true
+    } else {
+      print("you lost\n")
+      false
+    }
+
+  }
+
 }

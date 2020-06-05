@@ -25,7 +25,5 @@ object AnnoDomini {
       tui.update
 
     } while(input != "q")
-
-
   }
 }

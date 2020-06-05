@@ -6,7 +6,6 @@ import util._
 
 class Controller(var table:Table) extends Observable {
 
-
   def createRandomTable(players:Int):Unit = {
     val db = new DeckBuilder
     val deck = db.buildDeck
@@ -26,7 +25,7 @@ class Controller(var table:Table) extends Observable {
     notifyObservers
   }
 
-  def gridToString: String = Table.toString
+  def tableToString: String = Table.toString  //TODO: properly define the to String method
 
   def draw(x:Int) ={
     table = table.pDraw(x)
@@ -44,8 +43,8 @@ class Controller(var table:Table) extends Observable {
   }
 
   def checkCardOrder = {
-    table.checkCardOrder
     notifyObservers
+    table.checkCardOrder
   }
 
 

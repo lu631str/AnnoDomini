@@ -19,6 +19,8 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]){
     cards.patch(idxd, List(players.head.removeCard(idxs)._1),0),
     players.tail:::players.head.removeCard(idxs)._2::Nil, deck)
 
+  override def toString = showCards
+
   //def showPlayerCards = players.foreach(p => p.showCards)
   // has to allow a player to place a card
 

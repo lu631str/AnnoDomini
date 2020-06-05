@@ -9,11 +9,6 @@ import util.Observer
 case class Tui(controller: Controller) extends Observer{
   controller.add(this)
   val scanner = new Scanner(System.in)
-
-  println("Enter how many players want to play?")
-  val players : Int = scanner.nextInt()
-
-  controller.createRandomTable(players)
   controller.toString
 
   println("which Card do you want to place?")
@@ -30,6 +25,14 @@ case class Tui(controller: Controller) extends Observer{
     } else{
       println("Verloren.")
     }
+  }
+  def processInputLine(input: String)={
+    input match {
+      case "q" =>
+      //case _._ => controller.placeCard(_, _)
+    }
+
+
   }
 
   override def update: Unit = println(controller.tableToString)

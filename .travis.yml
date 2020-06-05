@@ -3,8 +3,6 @@ scala:
   - 2.13.2
 
 
-before_script:
-  - composer install -- no-interaction
 
 script:
   - sbt clean coverage test coverageReport

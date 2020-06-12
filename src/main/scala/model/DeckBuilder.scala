@@ -3,7 +3,7 @@ import java.nio.file.Paths
 
 class DeckBuilder{
 
-  protected val path: String = System.getProperty("user.dir")
+ // protected val path: String = System.getProperty("user.dir")
 
 
   // generate a deck without txt file

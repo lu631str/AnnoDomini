@@ -35,5 +35,5 @@ case class Tui(controller: Controller) extends Observer{
 
   }
 
-  override def update: Unit = println(controller.tableToString)
+  override def update: Boolean= (true)
 }

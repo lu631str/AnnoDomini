@@ -6,7 +6,7 @@ case class Player(name: String, hand: List[Card]) {
   override def toString:String = name + hand.mkString(", ")
 
   def showHand = name + ":\n" + hand.mkString(", ") + "\n"
-  def addCard(c: Card) = Player(name +":", c :: hand)
+  def addCard(c: Card) = Player(name , c :: hand)
 
   def addCard(c: List[Card]) = Player(name + ":", c ::: hand)
 

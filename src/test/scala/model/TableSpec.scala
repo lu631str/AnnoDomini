@@ -18,6 +18,7 @@ class TabledSpec extends WordSpec with Matchers {
       "have deck" in{
         table.deck should be (List(Card("Test3", 1803)))
         table.deck.isInstanceOf[List[Card]] should be (true)
+
       }
       //"have a method apply"in{
        // table.apply(table.cards, table.players) should be ("")

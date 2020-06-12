@@ -19,7 +19,7 @@ class TuiSpec extends WordSpec with Matchers {
     "method to check card order" in {
       tui.controller.checkCardOrder should be (true)
       tui.controller.placeCard(0,0)
-      tui.controller.checkCardOrder should be (false)
+      tui.checkCards should be ()
 
     }
 

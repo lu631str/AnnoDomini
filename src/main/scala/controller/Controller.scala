@@ -6,9 +6,10 @@ import util._
 
 class Controller(var table:Table) extends Observable {
 
+
+
   def createRandomTable(players:Int):Unit = {
-    val db = new DeckBuilder
-    val deck = db.buildDeck
+    val deck = CardStack.initialize
     table = Table(
       deck.head::Nil,
       Player("player1", deck.tail.splitAt(3)._1)::Nil,

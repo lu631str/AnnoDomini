@@ -2,7 +2,7 @@ package model
 import scala.util.control
 
 
-case class Player(name: String, hand: List[Card]) {
+case class Player(name: String, var hand: List[Card]) {
   override def toString:String = name + hand.mkString(", ")
 
   def showHand = name + ":\n" + hand.mkString(", ") + "\n"

@@ -5,7 +5,7 @@ import util._
 
 
 class Controller(var table:Table) extends Observable {
-
+  val undoManager = new UndoManager
 
 
   def createRandomTable(players:Int):Unit = {
@@ -46,6 +46,16 @@ class Controller(var table:Table) extends Observable {
   def checkCardOrder = {
     notifyObservers
     table.checkCardOrder
+  }
+
+  def undo: Unit ={
+    undoManager.undoStep
+    notifyObservers
+  }
+
+  def redo: Unit ={
+    undoManager.redoStep
+    notifyObservers
   }
 
 

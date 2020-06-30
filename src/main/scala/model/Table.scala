@@ -1,5 +1,10 @@
 package model
-  case class Table(cards: List[Card], players: List[Player], deck: List[Card]) {
+  case class Table( var cards: List[Card],  var players: List[Player],  var deck: List[Card]) {
+
+
+
+
+
     //def apply(cards: List[Card], value: List[Player]): Table = ???
 
     // Has to display cards
@@ -12,6 +17,9 @@ package model
       players.tail ::: players.head.addCard(deck.head) :: Nil,
       deck.tail)
 
+    //def addCard(idx:Int) = players.tail ::: players.head.addCard(cards.splitAt(idx)._1)
+
+
     def pDraw(x: Int) = Table(
       cards,
       players.tail ::: players.head.addCard(deck.splitAt(x)._1) :: Nil,
@@ -21,6 +29,11 @@ package model
       cards.patch(idxd, List(players.head.removeCard(idxs)._1), 0),
       players.tail ::: players.head.removeCard(idxs)._2 :: Nil, deck)
 
+    def drawCard(x: Int) = Table(
+      cards.splitAt(x)._2, players.tail ::: players.head.addCard(cards.splitAt(x)._1) :: Nil,
+      deck)
+    
+    
     override def toString = showCards
 
     //def showPlayerCards = players.foreach(p => p.showCards)

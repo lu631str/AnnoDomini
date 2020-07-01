@@ -1,8 +1,9 @@
 name := "Anno Domini"
 
-version := "0.1"
+version := "0.6.0"
 
-scalaVersion := "2.13.2"
+scalaVersion := "2.12.7"
 
-libraryDependencies += "org.scalactic" %% "scalactic" % "3.1.1"
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.1" % "test"
+libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.5"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
+

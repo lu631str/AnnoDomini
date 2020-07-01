@@ -5,10 +5,11 @@ import util._
 
 
 class Controller(var table:Table) extends Observable {
+  val undoManager = new UndoManager
+
 
   def createRandomTable(players:Int):Unit = {
-    val db = new DeckBuilder
-    val deck = db.buildDeck
+    val deck = CardStack.initialize
     table = Table(
       deck.head::Nil,
       Player("player1", deck.tail.splitAt(3)._1)::Nil,
@@ -45,6 +46,16 @@ class Controller(var table:Table) extends Observable {
   def checkCardOrder = {
     notifyObservers
     table.checkCardOrder
+  }
+
+  def undo: Unit ={
+    undoManager.undoStep
+    notifyObservers
+  }
+
+  def redo: Unit ={
+    undoManager.redoStep
+    notifyObservers
   }
 
 

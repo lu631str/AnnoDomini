@@ -1,8 +1,8 @@
 package model
-import org.scalatest.wordspec.AnyWordSpec
+import org.scalatest._
 
-/*
-  the DeckBuilder is a class, that's supposed to create
+
+ /* the DeckBuilder is a class, that's supposed to create
   a playable Deck.
   First it is supposed to generate cards from a txt file
   and store them in a list
@@ -15,12 +15,25 @@ import org.scalatest.wordspec.AnyWordSpec
   The game contains different versions with different themes.
   The deckbuilder can choose between those different versions
   or combine them together.
- */
+*/
 
-class DeckBuilderSpeck extends AnyWordSpec {
+class DeckBuilderSpeck extends  WordSpec with Matchers {
   "The DeckBuilder works" when {
     "using the standard Deck" should {
       val deckBuilder = new DeckBuilder
+
+      "have a method to generate a deck" in {
+        deckBuilder.deckGen(0,Nil) should be (Nil)
+        deckBuilder.deckGen(1,Nil) should be (List(Card("Card 1",1)))
+      }
+      "have a method to generate a deck with 9 cards"in{
+        deckBuilder.buildDeck should be (deckBuilder.deckGen(9,Nil))
+      }
+
+
+
+
+
       "contain a list of txt file names, those are the game versions chosen by the player" in{
 
       }
@@ -35,7 +48,7 @@ class DeckBuilderSpeck extends AnyWordSpec {
         // the shuffled deck cannot contain the same card twice
         // the shuffled deck has to be actually randomized (kinda hard to test, isn't it?)
       }
-    }
+         }
   }
 
 }

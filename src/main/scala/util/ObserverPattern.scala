@@ -1,7 +1,7 @@
-package util
+/*package util
 
 class TestObject extends Observer {
-  def update:Unit = println("Ping")
+  def update:Boolean = (true)
 }
 
 object ObserverPattern {
@@ -17,3 +17,4 @@ object ObserverPattern {
   observable.remove(observer2)
   observable.notifyObservers
 }
+*/

@@ -1,18 +1,14 @@
 package model
-  case class Table(  cards: List[Card],   players: List[Player],   deck: List[Card]) {
 
-
-
-
-
-    //def apply(cards: List[Card], value: List[Player]): Table = ???
+case class Table(cards:List[Card], players:List[Player], deck:List[Card]){
+  //def apply(cards: List[Card], value: List[Player]): Table = ???
 
     // Has to display cards
-    def showCards = "Feld:\n" +
+    def showCards: String = "Feld:\n" +
       cards.mkString(", ") + "\n" + players.map(p => p.showHand).mkString("\n")
 
     // player draws:
-    def pDraw = Table(
+    def pDraw: Table = Table(
       cards,
       players.tail ::: players.head.addCard(deck.head) :: Nil,
       deck.tail)
@@ -20,20 +16,20 @@ package model
     //def addCard(idx:Int) = players.tail ::: players.head.addCard(cards.splitAt(idx)._1)
 
 
-    def pDraw(x: Int) = Table(
+    def pDraw(x: Int): Table = Table(
       cards,
       players.tail ::: players.head.addCard(deck.splitAt(x)._1) :: Nil,
       deck.splitAt(x)._2)
 
-    def placeCard(idxs: Int, idxd: Int) = Table(
+    def placeCard(idxs: Int, idxd: Int): Table = Table(
       cards.patch(idxd, List(players.head.removeCard(idxs)._1), 0),
       players.tail ::: players.head.removeCard(idxs)._2 :: Nil, deck)
 
-    def drawCard(x: Int) = Table(
+    def drawCard(x: Int): Table = Table(
       cards.splitAt(x)._2, players.tail ::: players.head.addCard(cards.splitAt(x)._1) :: Nil,
       deck)
-    
-    
+
+
     override def toString = showCards
 
     //def showPlayerCards = players.foreach(p => p.showCards)

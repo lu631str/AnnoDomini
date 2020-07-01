@@ -19,14 +19,15 @@ object AnnoDomini {
     val players = scanner.nextInt()
 
     controller.createRandomTable(players)
-    tui.update
-    do {
+    tui.showField
+    //do {
       println("which Card do you want to place?")
       var card = scanner.nextInt
       println("where do you want to place it?")
       var place = scanner.nextInt
+      tui.placeCard(card, place)
+      tui.checkCards
       tui.update
-    } while(input != "q")
-    // ein kurzer test
+    //} while(input != "q")
   }
 }

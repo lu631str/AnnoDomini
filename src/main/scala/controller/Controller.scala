@@ -15,34 +15,34 @@ class Controller(var table:Table) extends Observable {
     notifyObservers
   }
 
-  def tableToString: String = table.toString  //TODO: properly define the to String method
+  def tableToString: String = table.showCards
 
-  def draw(x:Int) ={
+  def draw(x:Int): Unit ={
     table = table.pDraw(x)
     notifyObservers
 
   }
-  def draw ={
+  def draw() ={
     table = table.pDraw
     notifyObservers
   }
 
-  def placeCard(cardIdx:Int, position:Int) = {
+  def placeCard(cardIdx:Int, position:Int): Unit = {
     table = table.placeCard(cardIdx, position)
     notifyObservers
   }
 
-  def checkCardOrder = {
+  def checkCardOrder: Boolean = {
     notifyObservers
     table.checkCardOrder
   }
 
-  def undo: Unit ={
+  def undo(): Unit ={
     undoManager.undoStep
     notifyObservers
   }
 
-  def redo: Unit ={
+  def redo(): Unit ={
     undoManager.redoStep
     notifyObservers
   }

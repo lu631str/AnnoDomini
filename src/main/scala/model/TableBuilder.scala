@@ -30,12 +30,12 @@ class TableBuilder extends Builder {
     val name : String= ""
     // if none given player i is default
     // create player with given name, but we need
-    if(name.isEmpty) players = Player(name, deck.head::Nil) :: Nil
+    if(!name.isEmpty) players = Player(name, deck.head::Nil) :: Nil
     else players = Player("Player1", deck.head::Nil) :: Nil
     deck = deck.tail
 
   }
-  def buildTable: Unit = {
+  def buildTable(): Unit = {
     buildDeck()
     buildCards()
     // Ask for number of players?

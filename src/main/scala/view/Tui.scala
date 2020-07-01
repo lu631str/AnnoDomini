@@ -3,28 +3,33 @@ package view
 import java.util.Scanner
 
 import controller.Controller
-import model.{DeckBuilder, Player, Table}
+import model.{Card, DeckBuilder, Player, Table}
 import util.Observer
 
 case class Tui(controller: Controller) extends Observer{
   controller.add(this)
 
-  def checkCards = {
+  def checkCards() = {
     if(controller.checkCardOrder){
       println("Gewonnen!")
     } else{
       println("Verloren.")
     }
   }
-  def processInputLine(input: String)={
+
+  def placeCard(cardIndx: Int, posIndx: Int): Unit = {
+    controller.placeCard(cardIndx, posIndx)
+    showField
+  }
+
+  def processInputLine(input: String): Unit ={
     input match {
       case "q" =>
       //case _._ => controller.placeCard(_, _)
     }
   }
-  def askPlayerName = {
-    println("enter Player name:\n")
-  }
 
-  override def update:Boolean = true
+  def showField(): Unit = println(controller.tableToString)
+
+  override def update: Boolean = true
 }

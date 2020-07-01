@@ -21,9 +21,10 @@ case class Tui(controller: Controller) extends Observer{
       case "q" =>
       //case _._ => controller.placeCard(_, _)
     }
-
-
+  }
+  def askPlayerName = {
+    println("enter Player name:\n")
   }
 
-  override def update: Unit = println(controller.tableToString)
+  override def update:Boolean = true
 }

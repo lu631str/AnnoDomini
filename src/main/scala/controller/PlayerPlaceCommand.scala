@@ -2,7 +2,8 @@ package controller
 
 import util.Command
 import model.Card
-
+import model.Table
+import model.Player
 
 class PlayerPlaceCommand(idxd:Int, idxs:Int, controller: Controller) extends Command{
   var undoList1 = List[Card]()
@@ -13,17 +14,18 @@ class PlayerPlaceCommand(idxd:Int, idxs:Int, controller: Controller) extends Com
     var templist2 = controller.table.players.head.hand
     undoList1 = tempList
     undoList2 = templist2
-    tempList = tempList :+ controller.table.players.head.hand(idxs)
+    tempList = controller.table.cards.patch(idxd,List(controller.table.players.head.hand(idxs)) , 0)
     templist2 = controller.table.players.head.hand.patch(idxs, Nil, 1)
-    controller.table.cards = tempList
-    controller.table.players.head.hand = templist2
+
+    controller.table = Table(tempList,List(Player(controller.table.players.head.name, templist2)), controller.table.deck)
+
 
 
 
   }
 
   override def undoStep: Unit = {
-    controller.table.cards = undoList1
+    controller.table = Table(undoList1,List(Player(controller.table.players.head.name, undoList2)), controller.table.deck)
     controller.table.players.head.hand = undoList2
   }
   override def redoStep: Unit =

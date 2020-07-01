@@ -26,5 +26,5 @@ case class Tui(controller: Controller) extends Observer{
     println("enter Player name:\n")
   }
 
-  override def update: Unit = println(controller.tableToString)
+  override def update:Boolean = true
 }

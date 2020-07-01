@@ -1,5 +1,5 @@
 package model
-  case class Table( var cards: List[Card],  var players: List[Player],  var deck: List[Card]) {
+  case class Table(  cards: List[Card],   players: List[Player],   deck: List[Card]) {
 
 
 

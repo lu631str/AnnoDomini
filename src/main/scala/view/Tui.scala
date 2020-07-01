@@ -8,16 +8,6 @@ import util.Observer
 
 case class Tui(controller: Controller) extends Observer{
   controller.add(this)
-  val scanner = new Scanner(System.in)
-  controller.toString
-
-  println("which Card do you want to place?")
-  var card = scanner.nextInt
-  println("where do you want to place it?")
-  var place = scanner.nextInt
-
-  update
-  checkCards
 
   def checkCards = {
     if(controller.checkCardOrder){
@@ -31,8 +21,9 @@ case class Tui(controller: Controller) extends Observer{
       case "q" =>
       //case _._ => controller.placeCard(_, _)
     }
-
-
+  }
+  def askPlayerName = {
+    println("enter Player name:\n")
   }
 
   override def update: Unit = println(controller.tableToString)

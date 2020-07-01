@@ -15,7 +15,8 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]){
     cards,
     players.tail ::: players.head.addCard(deck.splitAt(x)._1) :: Nil,
     deck.splitAt(x)._2)
-  def placeCard(idxs: Int, idxd: Int) = Table(
+  def placeCard(idxs: Int, idxd: Int) =
+    Table(
     cards.patch(idxd, List(players.head.removeCard(idxs)._1),0),
     players.tail:::players.head.removeCard(idxs)._2::Nil, deck)
 

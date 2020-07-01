@@ -16,18 +16,22 @@ object AnnoDomini {
 
     var input :String = ""
     println("Enter how many players want to play?")
-    val players = scanner.nextInt()
+    val players = 1 // scanner.nextInt()
 
     controller.createRandomTable(players)
-    tui.showField
-    //do {
-      println("which Card do you want to place?")
-      var card = scanner.nextInt
-      println("where do you want to place it?")
-      var place = scanner.nextInt
-      tui.placeCard(card, place)
-      tui.checkCards
+    do {
+      tui.showField()
+      tui.askForAction()
+      input = scanner.next()
+      tui.processInputLine(input)
+      if(input == "p"){
+        println("which Card do you want to place?")
+        var card = scanner.nextInt
+        println("where do you want to place it?")
+        var place = scanner.nextInt
+        tui.placeCard(card, place)
+      }
       tui.update
-    //} while(input != "q")
+    } while(input != "q")
   }
 }

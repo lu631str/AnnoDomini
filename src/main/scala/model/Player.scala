@@ -10,4 +10,6 @@ case class Player(name: String, hand: List[Card]) {
   def addCard(c: List[Card]) = Player(name, c ::: hand)
 
   def removeCard(idx: Int) =(hand(idx),Player(name,hand.patch(idx,Nil,1)))
+
+  def addCardAt(idx: Int, card: Card) = Player(name, hand.patch(idx, card :: Nil, 0))
 }

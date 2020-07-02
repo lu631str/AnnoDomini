@@ -1,14 +1,6 @@
+package modelBaseImpl
 
-/*
-  player
-  has a name
-  has a hand of cards
-  can take new cads
-  can put a card down
-  can doubt the current card order
-   */
-package model
-
+import model.modelBaseImpl.{Card, Player}
 import org.scalatest._
 
 
@@ -32,7 +24,7 @@ class PlayerSpec extends WordSpec with Matchers {
       }
 
         "remove a Card" in {
-          player.removeCard(0) should be((player.hand(0), Player("Your Name", player.hand.patch(0, Nil, 1))))
+          player.removeCard(0) should be((player.hand, Player("Your Name", player.hand.patch(0, Nil, 1))))
           //player.removeCard(2) should be("Out of Index")
         }
 

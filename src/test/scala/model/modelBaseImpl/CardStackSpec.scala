@@ -1,4 +1,6 @@
-package model
+package modelBaseImpl
+
+import model.modelBaseImpl.{Card, CardStack, Table}
 import org.scalatest._
 
 

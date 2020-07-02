@@ -1,4 +1,7 @@
-package model
+package modelBaseImpl
+
+
+import model.modelBaseImpl.{Card, DeckBuilder}
 import org.scalatest._
 
 

@@ -3,7 +3,7 @@ package view
 import java.util.Scanner
 
 import controller.Controller
-import model.{Card, DeckBuilder, Player, Table}
+import model.modelBaseImpl.DeckBuilder
 import util.Observer
 
 case class Tui(controller: Controller) extends Observer{

@@ -4,6 +4,7 @@ import java.util.Scanner
 
 import controller._
 import model._
+import model.modelBaseImpl.{Card, Player, Table}
 import view._
 import org.scalatest.{Matchers, WordSpec}
 
@@ -11,7 +12,7 @@ class TuiSpec extends WordSpec with Matchers {
 
   "A Game Tui" should {
     val controller = new Controller(Table(List(Card("Test1", 1800)), List(Player("player 1", List(Card("Test2", 1802)))),List(Card("Test3", 1803))))
-    val tui = new Tui(controller)
+    val tui = Tui(controller)
 
     "do nothing on input 'q'" in {
     tui.processInputLine("q")

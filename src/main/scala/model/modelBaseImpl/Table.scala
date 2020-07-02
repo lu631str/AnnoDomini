@@ -1,4 +1,6 @@
-package model
+package model.modelBaseImpl
+
+import model.TableInterface
 
 case class Table(cards:List[Card], players:List[Player], deck:List[Card]) extends TableInterface {
   //def apply(cards: List[Card], value: List[Player]): Table = ???
@@ -49,7 +51,3 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]) extend
     }
 
   }
-
-
-
-

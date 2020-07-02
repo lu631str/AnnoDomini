@@ -1,5 +1,6 @@
 package controller
 import model._
+import model.modelBaseImpl.{Card, Player, Table}
 import org.scalatest._
 
 

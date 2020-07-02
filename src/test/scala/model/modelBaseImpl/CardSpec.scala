@@ -1,5 +1,6 @@
-package model
+package modelBaseImpl
 
+import model.modelBaseImpl.Card
 import org.scalatest._
 // Question: according to Scalatest.org running a test should display the text, but it doesn't here. Why?
 // I Still don't understand how the test doesd apperantly not test the
@@ -19,7 +20,7 @@ class CardSpec extends WordSpec with Matchers{
   // it will still work but it will throw warnings
   // TODO: look up new proper syntax for the Matchers
   "A Card" when { "new" should {
-    val card = model.Card("A Text", 2)
+    val card = Card("A Text", 2)
     "a new card should be declared" in{
       val ncard = Card("Test", 4)
       ncard.isInstanceOf[Card] should be(true)

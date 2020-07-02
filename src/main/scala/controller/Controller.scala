@@ -1,6 +1,7 @@
 package controller
 
 import model._
+import model.modelBaseImpl.{Table, TableBuilder}
 import util._
 
 
@@ -10,7 +11,7 @@ class Controller(var table:Table) extends Observable {
 
   def createRandomTable(players:Int):Unit = {
     val tb = new TableBuilder
-    tb.buildTable
+    tb.buildTable()
     table = tb.getTable
     notifyObservers
   }
@@ -22,7 +23,7 @@ class Controller(var table:Table) extends Observable {
     notifyObservers
 
   }
-  def draw() ={
+  def draw(): Unit ={
     table = table.pDraw
     notifyObservers
   }

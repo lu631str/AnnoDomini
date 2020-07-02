@@ -1,6 +1,6 @@
-package model
-import scala.util.control
+package model.modelBaseImpl
 
+import model.PlayerInterface
 
 case class Player(name: String, var hand: List[Card]) extends PlayerInterface {
   override def toString:String = name + hand.mkString(", ")

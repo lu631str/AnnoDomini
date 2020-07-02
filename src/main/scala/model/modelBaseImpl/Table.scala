@@ -3,7 +3,6 @@ package model.modelBaseImpl
 import model.TableInterface
 
 case class Table(cards:List[Card], players:List[Player], deck:List[Card]) extends TableInterface {
-  //def apply(cards: List[Card], value: List[Player]): Table = ???
 
     // Has to display cards
     def showCards: String = "Feld:\n" +
@@ -31,6 +30,20 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]) extend
       cards.splitAt(x)._2, players.tail ::: players.head.addCard(cards.splitAt(x)._1) :: Nil,
       deck)
 
+  def givecardsacard(idxs:Int, idxd:Int): List[Card] ={
+    cards.patch(idxd,List(players.head.hand(idxs)) , 0)
+  }
+
+  def takeacardfromplayer(idxs:Int): List[Card] = {
+    players.head.hand.patch(idxs, Nil, 1)
+
+  }
+
+  def returnHand: List[Card] = players.head.hand
+
+  def returnDeck: List[Card] = deck
+
+  def returnName:String  = {return players.head.name}
 
     override def toString: String = showCards
 

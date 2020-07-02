@@ -2,7 +2,6 @@ import view._
 import controller._
 import model._
 import java.util.Scanner
-
 import controller.controllerBase.Controller
 
 

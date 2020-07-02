@@ -21,16 +21,16 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]){
       players.tail ::: players.head.addCard(deck.splitAt(x)._1) :: Nil,
       deck.splitAt(x)._2)
 
-    def placeCard(idxs: Int, idxd: Int): Table = Table(
-      cards.patch(idxd, List(players.head.removeCard(idxs)._1), 0),
-      players.tail ::: players.head.removeCard(idxs)._2 :: Nil, deck)
+    def placeCard(idxPlayerCard: Int, idxPositionAtTable: Int): Table = Table(
+      cards.patch(idxPositionAtTable, List(players.head.removeCard(idxPlayerCard)._1), 0),
+      players.tail ::: players.head.removeCard(idxPlayerCard)._2 :: Nil, deck)
 
     def drawCard(x: Int): Table = Table(
       cards.splitAt(x)._2, players.tail ::: players.head.addCard(cards.splitAt(x)._1) :: Nil,
       deck)
 
 
-    override def toString = showCards
+    override def toString: String = showCards
 
     //def showPlayerCards = players.foreach(p => p.showCards)
     // has to allow a player to place a card

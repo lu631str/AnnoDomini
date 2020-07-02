@@ -1,4 +1,5 @@
 package controller
+import controller.controllerBase.Controller
 import model._
 import org.scalatest._
 

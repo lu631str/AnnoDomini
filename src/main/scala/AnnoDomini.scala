@@ -3,7 +3,7 @@ import controller._
 import model._
 import java.util.Scanner
 
-import controller.Controller
+import controller.controllerBase.Controller
 
 
 object AnnoDomini {

@@ -1,5 +1,6 @@
 package controller
 
+import controller.controllerBase.Controller
 import util.Command
 import model.Card
 import model.Table

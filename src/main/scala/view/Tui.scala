@@ -2,7 +2,7 @@ package view
 
 import java.util.Scanner
 
-import controller.Controller
+import controller.controllerBase.Controller
 import model.{Card, DeckBuilder, Player, Table}
 import util.Observer
 

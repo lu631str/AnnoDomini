@@ -3,6 +3,7 @@ package view
 import java.util.Scanner
 
 import controller._
+import controller.controllerBase.Controller
 import model._
 import view._
 import org.scalatest.{Matchers, WordSpec}

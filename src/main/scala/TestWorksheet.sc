@@ -1,5 +1,5 @@
+import controller.controllerBase.Controller
 import model.{Player, _}
-import controller.Controller
 
 import scala.util.Random
 

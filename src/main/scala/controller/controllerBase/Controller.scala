@@ -5,7 +5,7 @@ import model._
 import util._
 
 
-class Controller (var table:Table) extends ControllerInterface  {
+class Controller (var table:TableInterface) extends ControllerInterface  {
   val undoManager = new UndoManager
 
 
@@ -27,6 +27,9 @@ class Controller (var table:Table) extends ControllerInterface  {
     table = table.pDraw
     notifyObservers
   }
+
+
+
 
   def placeCard(cardIdx:Int, position:Int): Unit = {
     table = table.placeCard(cardIdx, position)

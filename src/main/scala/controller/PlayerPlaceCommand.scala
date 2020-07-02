@@ -11,14 +11,14 @@ class PlayerPlaceCommand(idxd:Int, idxs:Int, controller: Controller) extends Com
   var undoList2 = List[Card]()
 
   override def doStep: Unit = {
-    var tempList = controller.table.cards
-    var templist2 = controller.table.players.head.hand
+    var tempList = controller.table.returnDeck
+    var templist2 = controller.table.returnHand
     undoList1 = tempList
     undoList2 = templist2
-    tempList = controller.table.cards.patch(idxd,List(controller.table.players.head.hand(idxs)) , 0)
-    templist2 = controller.table.players.head.hand.patch(idxs, Nil, 1)
+    tempList = controller.table.givecardsacard(idxd, idxs)
+    templist2 = controller.table.takeacardfromplayer(idxs)
 
-    controller.table = Table(tempList,List(Player(controller.table.players.head.name, templist2)), controller.table.deck)
+    controller.table = Table(tempList,List(Player(controller.table.returnName, templist2)), controller.table.returnDeck)
 
 
 
@@ -26,8 +26,8 @@ class PlayerPlaceCommand(idxd:Int, idxs:Int, controller: Controller) extends Com
   }
 
   override def undoStep: Unit = {
-    controller.table = Table(undoList1,List(Player(controller.table.players.head.name, undoList2)), controller.table.deck)
-    controller.table.players.head.hand = undoList2
+    controller.table = Table(undoList1,List(Player(controller.table.returnName, undoList2)), controller.table.returnDeck)
+    //controller.table.players.head.hand = undoList2
   }
   override def redoStep: Unit =
     doStep

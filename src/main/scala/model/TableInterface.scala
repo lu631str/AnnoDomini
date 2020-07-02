@@ -1,6 +1,11 @@
 package model
 
 trait TableInterface {
+  def takeacardfromplayer(idxs:Int): List[Card]
+  def givecardsacard(idxs: Int, idxd:Int):List[Card]
+  def returnName: String
+  def returnHand: List[Card]
+  def returnDeck: List[Card]
   def showCards: String
   def pDraw: Table
   def pDraw(x: Int): Table

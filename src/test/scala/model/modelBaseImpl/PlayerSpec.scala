@@ -19,8 +19,9 @@ class PlayerSpec extends WordSpec with Matchers {
         player.hand.isInstanceOf[List[Card]] should be(true)
       }
       "add a Card" in {
-        player.addCard(Card("Test2", 1801)) should be (Player("Your Name:", List(Card("Test2", 1801), Card("Test", 1800))))
-        player.addCard(List(Card("Test2", 1801), Card("Test3", 1802))) should be  (Player("Your Name:", List(Card("Test2", 1801),Card("Test3", 1802), Card("Test", 1800))))
+        player.addCard(
+          Card("Test2", 1801)) should be (Player("Your Name:", List(Card("Test2", 1801), Card("Test", 1800))))
+        player.addCard(List(Card("Test2", 1801), Card("Test3", 1802))) should be (Player("Your Name:", List(Card("Test2", 1801),Card("Test3", 1802), Card("Test", 1800))))
       }
 
         "remove a Card" in {

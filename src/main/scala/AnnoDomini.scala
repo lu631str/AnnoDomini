@@ -5,6 +5,7 @@ import java.util.Scanner
 
 import controller.Controller
 import model.modelBaseImpl.Table
+import controller.controllerBase.Controller
 
 
 object AnnoDomini {

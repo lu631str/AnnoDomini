@@ -4,6 +4,8 @@ import java.util.Scanner
 
 import controller.Controller
 import model.modelBaseImpl.DeckBuilder
+import controller.controllerBase.Controller
+import model.{Card, DeckBuilder, Player, Table}
 import util.Observer
 
 case class Tui(controller: Controller) extends Observer{

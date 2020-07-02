@@ -1,11 +1,12 @@
-package controller
+package controller.controllerBase
 
+import controller.ControllerInterface
 import model._
 import model.modelBaseImpl.{Table, TableBuilder}
 import util._
 
 
-class Controller(var table:Table) extends Observable {
+class Controller (var table:Table) extends ControllerInterface  {
   val undoManager = new UndoManager
 
 

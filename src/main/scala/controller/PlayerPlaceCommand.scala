@@ -1,5 +1,6 @@
 package controller
 
+import controller.controllerBase.Controller
 import util.Command
 import model.modelBaseImpl.{Card, Player, Table}
 

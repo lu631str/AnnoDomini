@@ -3,6 +3,7 @@ package view
 import java.util.Scanner
 
 import controller._
+import controller.controllerBase.Controller
 import model._
 import model.modelBaseImpl.{Card, Player, Table}
 import view._

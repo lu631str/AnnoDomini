@@ -2,7 +2,7 @@ package model
 import scala.util.control
 
 
-case class Player(name: String, var hand: List[Card]) {
+case class Player(name: String, var hand: List[Card]) extends PlayerInterface {
   override def toString:String = name + hand.mkString(", ")
   def selectCard(x:Int): (Card, Player) =
     (hand(x-1), Player(name, hand.patch(x-1, Nil, 1)))

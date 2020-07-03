@@ -1,5 +1,6 @@
-import controller.controllerBase.Controller
-import model.{Player, _}
+import model._
+import controller.Controller
+import model.modelBaseImpl.{Card, Player, Table}
 
 import scala.util.Random
 

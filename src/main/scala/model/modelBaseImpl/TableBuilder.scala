@@ -1,6 +1,6 @@
-package model
+package model.modelBaseImpl
 
-import view._
+import model.Builder
 
 class TableBuilder extends Builder {
   // does not yet adhere to functional programming!!!

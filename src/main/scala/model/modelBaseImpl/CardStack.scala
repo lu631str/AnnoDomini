@@ -1,5 +1,5 @@
-package model
-import scala.util.Random
+package model.modelBaseImpl
+
 object CardStack {
 val initialize:List[Card]= List(Card("test", 55),Card("Sarah und Lukas erstellen eine virtuelle version von Anno Domini",2020),
   Card("Die erste Postanweisung",817),

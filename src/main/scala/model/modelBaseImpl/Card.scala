@@ -1,4 +1,4 @@
-package model
+package model.modelBaseImpl
 
 case class Card(text: String, date: Int){
   def look = s"$text"

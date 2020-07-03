@@ -1,4 +1,5 @@
 package model
+import modelBaseImpl.{Player, Table, Card}
 
 trait TableInterface {
   def takeacardfromplayer(idxs:Int): List[Card]

@@ -2,11 +2,13 @@ package view
 
 import java.util.Scanner
 
-import controller.controllerBase.Controller
-import model.{Card, DeckBuilder, Player, Table}
+import model.modelBaseImpl.DeckBuilder
+import controller.ControllerInterface
+import model.modelBaseImpl.{Card, DeckBuilder, Player, Table}
+import model.TableInterface
 import util.Observer
 
-case class Tui(controller: Controller) extends Observer{
+case class Tui(controller: ControllerInterface) extends Observer{
   controller.add(this)
 
   def checkCards(): Unit = {

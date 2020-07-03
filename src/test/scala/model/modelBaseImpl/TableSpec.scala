@@ -1,19 +1,21 @@
-package model
+package modelBaseImpl
+
+import model.modelBaseImpl.{Card, Player, Table}
 import org.scalatest._
 
 class TabledSpec extends WordSpec with Matchers {
   "Field is the basic playing field" when{
     "new" should {
-      val table = new Table(List(Card("Test1", 1800)), List(Player("player 1", List(Card("Test2", 1802)))),List(Card("Test3", 1803)))
+      val table = Table(List(Card("Test1", 1800)), List(Player("player 1", List(Card("Test2", 1802)))),List(Card("Test3", 1803)))
       "have a collection of ordered cards" in{
         table.cards should be (List(Card("Test1", 1800)))
         table.cards.isInstanceOf[List[Card]] should be (true)
-        table.cards should not equal(Nil)
+        table.cards should not equal Nil
       }
       "have at least one player" in{
         table.players should be (List(Player("player 1", List(Card("Test2", 1802)))))
         table.players.isInstanceOf[List[Player]] should be (true)
-        table.players should not equal(Nil)
+        table.players should not equal Nil
       }
       "have deck" in{
         table.deck should be (List(Card("Test3", 1803)))
@@ -73,7 +75,7 @@ class TabledSpec extends WordSpec with Matchers {
    Card1: text,  Card2: text,  Card3: text
 
    model.Field:
-     Card1: text,  model.Card: text, model.Card: text
+     Card1: text,  model.modelBaseImpl.Card: text, model.modelBaseImpl.Card: text
 
    Current Player: Player1
    what do you wanna do?

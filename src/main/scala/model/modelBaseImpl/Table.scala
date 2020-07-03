@@ -1,4 +1,6 @@
-package model
+package model.modelBaseImpl
+
+import model.TableInterface
 
 case class Table(cards:List[Card], players:List[Player], deck:List[Card]) extends TableInterface {
 
@@ -64,7 +66,3 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]) extend
     }
 
   }
-
-
-
-

@@ -2,9 +2,7 @@ package controller
 
 import controller.controllerBase.Controller
 import util.Command
-import model.Card
-import model.Table
-import model.Player
+import model.modelBaseImpl.{Card, Player, Table}
 
 class PlayerPlaceCommand(idxd:Int, idxs:Int, controller: Controller) extends Command{
   var undoList1 = List[Card]()

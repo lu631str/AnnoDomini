@@ -6,6 +6,7 @@ trait TableInterface {
   def returnName: String
   def returnHand: List[Card]
   def returnDeck: List[Card]
+  def returnCards: List[Card]
   def showCards: String
   def pDraw: Table
   def pDraw(x: Int): Table

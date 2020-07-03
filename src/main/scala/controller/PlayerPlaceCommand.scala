@@ -11,7 +11,7 @@ class PlayerPlaceCommand(idxd:Int, idxs:Int, controller: Controller) extends Com
   var undoList2 = List[Card]()
 
   override def doStep: Unit = {
-    var tempList = controller.table.returnDeck
+    var tempList =  controller.table.returnCards
     var templist2 = controller.table.returnHand
     undoList1 = tempList
     undoList2 = templist2

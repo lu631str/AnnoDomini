@@ -43,6 +43,8 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]) extend
 
   def returnName:String  = {return players.head.name}
 
+  def returnCards: List[Card] = cards
+
     override def toString: String = showCards
 
     //def showPlayerCards = players.foreach(p => p.showCards)

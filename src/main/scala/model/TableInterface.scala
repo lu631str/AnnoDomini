@@ -13,6 +13,8 @@ trait TableInterface {
   def placeCard(idxPlayerCard: Int, idxPositionAtTable: Int): Table
   def drawCard(x: Int): Table
   def checkCardOrder: Boolean
+
+  def createTableBuilder: TableBuilderInterface
 }
 
 trait PlayerInterface {
@@ -22,4 +24,13 @@ trait PlayerInterface {
   def addCard(c: List[Card]): Player
   def removeCard(idx: Int): (Card, Player)
   def addCardAt(idx: Int, card: Card): Player
+}
+
+trait TableBuilderInterface{
+  def reset()  // suposed to set the
+  def buildCards()
+  def buildPlayers()
+  def buildDeck()
+  def buildTable()
+  def getTAble()
 }

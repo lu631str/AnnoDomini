@@ -4,7 +4,6 @@ import util._
 
 trait ControllerInterface extends Observable{
 
-
   def createRandomTable(players:Int)
   def tableToString:String
   def draw(x:Int)

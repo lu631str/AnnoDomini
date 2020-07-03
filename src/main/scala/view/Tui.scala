@@ -1,7 +1,5 @@
 package view
 
-import java.util.Scanner
-
 import model.modelBaseImpl.DeckBuilder
 import controller.ControllerInterface
 import model.modelBaseImpl.{Card, DeckBuilder, Player, Table}

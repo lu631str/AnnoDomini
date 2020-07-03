@@ -42,6 +42,6 @@ class TableBuilder extends Builder {
     buildPlayers()
   }
 
-  def getTable: Table = Table(cards, players, deck)
+  def getTable(): Table = Table(cards, players, deck)
 }
 

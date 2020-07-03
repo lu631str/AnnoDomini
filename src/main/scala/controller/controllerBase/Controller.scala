@@ -1,8 +1,8 @@
 package controller.controllerBase
 
 import controller.ControllerInterface
-import model._
-import model.modelBaseImpl.{Table, TableBuilder}
+import model.modelBaseImpl.{Card, Table}
+import model.{Builder, TableBuilderInterface, TableInterface}
 import util._
 
 
@@ -11,9 +11,9 @@ class Controller (var table:TableInterface) extends ControllerInterface  {
 
 
   def createRandomTable(players:Int):Unit = {
-    val tb = new TableBuilder
+    var tb = table.createTableBuilder
     tb.buildTable()
-    table = tb.getTable
+    //table = tb.getTable
     notifyObservers
   }
 

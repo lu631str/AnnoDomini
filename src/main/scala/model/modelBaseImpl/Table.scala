@@ -1,8 +1,8 @@
 package model.modelBaseImpl
 
-import model.TableInterface
+import model.{TableBuilderInterface, TableInterface}
 
-case class Table(cards:List[Card], players:List[Player], deck:List[Card]) extends TableInterface {
+abstract case class Table(cards:List[Card], players:List[Player], deck:List[Card]) extends TableInterface {
 
     // Has to display cards
     def showCards: String = "Feld:\n" +
@@ -44,6 +44,8 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]) extend
   def returnDeck: List[Card] = deck
 
   def returnName:String  = {return players.head.name}
+
+  override def createTableBuilder: TableBuilderInterface // = new TableBuilder()
 
     override def toString: String = showCards
 

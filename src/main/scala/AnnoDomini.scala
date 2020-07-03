@@ -3,7 +3,7 @@ import controller._
 import model._
 import java.util.Scanner
 
-import controller.Controller
+import controller.ControllerInterface
 import model.modelBaseImpl.Table
 import controller.controllerBase.Controller
 

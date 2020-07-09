@@ -11,7 +11,7 @@ import controller.controllerBase.Controller
 object AnnoDomini {
   val controller = new Controller(Table(Nil, Nil, Nil))
   val tui : Tui = Tui(controller)
-  controller.notifyObservers
+  //controller.notifyObservers
   val scanner = new Scanner(System.in)
   def main(args: Array[String]): Unit = {
     println("Wilkommen bei AnnoDomini!!!")
@@ -33,7 +33,7 @@ object AnnoDomini {
         var place = scanner.nextInt
         tui.placeCard(card, place)
       }
-      tui.update
+      //tui.update
     } while(input != "q")
   }
 }

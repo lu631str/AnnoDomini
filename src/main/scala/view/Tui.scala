@@ -8,8 +8,10 @@ import model.modelBaseImpl.{Card, DeckBuilder, Player, Table}
 import model.TableInterface
 import util.Observer
 
-case class Tui(controller: ControllerInterface) extends Observer{
-  controller.add(this)
+import scala.swing.Reactor
+
+case class Tui(controller: ControllerInterface) extends Reactor{
+  listenTo(controller)
 
   def checkCards(): Unit = {
     if(controller.checkCardOrder){
@@ -51,5 +53,5 @@ case class Tui(controller: ControllerInterface) extends Observer{
 
   def showField(): Unit = println(controller.tableToString)
 
-  override def update: Boolean = true
+  //override def update: Boolean = true
 }

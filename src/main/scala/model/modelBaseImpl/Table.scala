@@ -39,6 +39,8 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]) extend
 
   }
 
+  def returnTable: Table = return Table(cards,players,deck)
+
   def returnHand: List[Card] = players.head.hand
 
   def returnDeck: List[Card] = deck
@@ -46,6 +48,27 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]) extend
   def returnName:String  = {return players.head.name}
 
   def returnCards: List[Card] = cards
+
+  def setPlayerName(newPlayerName:String):Unit = players.head.name.replaceAll("",newPlayerName)
+
+  def getCardTextFromPlayer(idx:Int): String={
+    return players.head.hand(idx).toString
+  }
+  def getCardTextFromCards(idx:Int): String={
+    return cards(idx).toString
+  }
+
+
+  def getListleghtFromPlayer: Int={
+    return players.head.hand.length
+
+  }
+
+  def getListleghtFromCards: Int={
+    return cards.length
+
+  }
+
 
     override def toString: String = showCards
 

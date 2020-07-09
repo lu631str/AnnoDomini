@@ -1,12 +1,17 @@
 package controller.controllerBase
 
-import controller.ControllerInterface
+import java.lang.ModuleLayer.Controller
+
+import controller.{ControllerInterface, GameChange, PlayerPlaceCommand, creat}
 import model._
-import model.modelBaseImpl.{Table, TableBuilder}
+import model.modelBaseImpl.{Card, Table, TableBuilder}
 import util._
 
+import scala.swing.Publisher
+import scala.swing.event.Event
 
-class Controller (var table:TableInterface) extends ControllerInterface  {
+
+class Controller (var table:TableInterface) extends ControllerInterface with Publisher  {
   val undoManager = new UndoManager
 
 
@@ -14,42 +19,76 @@ class Controller (var table:TableInterface) extends ControllerInterface  {
     val tb = new TableBuilder
     tb.buildTable()
     table = tb.getTable
-    notifyObservers
+    publish(new creat)
   }
 
   def tableToString: String = table.showCards
 
   def draw(x:Int): Unit ={
     table = table.pDraw(x)
-    notifyObservers
+    publish(new GameChange)
 
   }
   def draw(): Unit ={
     table = table.pDraw
-    notifyObservers
+    publish(new GameChange)
   }
 
+  def getCardTextFromPlayer(idx:Int): String ={
+      return table.getCardTextFromPlayer(idx)
+
+  }
+  def getCardTextFromCards(idx:Int): String={
+    return table.getCardTextFromCards(idx)
+  }
+
+  def getListleghtFromPlayer: Int={
+    return table.getListleghtFromPlayer
+
+  }
+
+   def getListleghtFromCards: Int={
+    return table.getListleghtFromCards
+
+  }
+  def returnCards: List[Card] = table.returnCards
+
+  def returnHand: List[Card] = table.returnHand
+
+  def givecardsacard(idxs:Int, idxd:Int): List[Card] = table.givecardsacard(idxs, idxd)
+
+  def takeacardfromplayer(idxs:Int): List[Card] = table.takeacardfromplayer(idxs)
+
+  def returnTable:Table = return return table.returnTable
+
+  def returnName:String = table.returnName
+
+  def returnDeck: List[Card] = table.returnDeck
+
+  def returnController: Controller = return this
 
 
 
   def placeCard(cardIdx:Int, position:Int): Unit = {
     table = table.placeCard(cardIdx, position)
-    notifyObservers
+    publish(new GameChange)
   }
 
   def checkCardOrder: Boolean = {
-    notifyObservers
     table.checkCardOrder
   }
-
+  def doStep(p:    PlayerPlaceCommand): Unit ={
+    undoManager.doStep( p:    PlayerPlaceCommand)
+    publish(new GameChange)
+  }
   def undo(): Unit ={
     undoManager.undoStep
-    notifyObservers
+    publish(new GameChange)
   }
 
   def redo(): Unit ={
     undoManager.redoStep
-    notifyObservers
+    publish(new GameChange)
   }
 
 

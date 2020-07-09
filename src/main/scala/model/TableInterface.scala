@@ -8,6 +8,13 @@ trait TableInterface {
   def returnHand: List[Card]
   def returnDeck: List[Card]
   def returnCards: List[Card]
+  def setPlayerName(newPlayerName:String):Unit
+  def getCardTextFromPlayer(idx:Int): String
+  def getCardTextFromCards(idx:Int): String
+  def getListleghtFromPlayer: Int
+  def getListleghtFromCards: Int
+
+  def returnTable: Table
   def showCards: String
   def pDraw: Table
   def pDraw(x: Int): Table

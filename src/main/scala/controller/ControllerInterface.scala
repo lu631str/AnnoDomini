@@ -6,7 +6,7 @@ import util._
 trait ControllerInterface extends Observable{
 
 
-  def setTable(table: Table): Unit
+  def setTable(table: TableInterface): Unit
   def tableToString:String
   def draw(x:Int)
   def draw
@@ -14,5 +14,6 @@ trait ControllerInterface extends Observable{
   def checkCardOrder:Boolean
   def undo()
   def redo()
+  def createTable()
 
 }

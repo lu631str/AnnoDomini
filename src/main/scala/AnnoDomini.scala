@@ -5,6 +5,7 @@ import com.google.inject.Guice
 import controller.ControllerInterface
 import model.modelBaseImpl.{Table, TableBuilder}
 import controller.controllerBase.Controller
+import injection.AnnoDominiModule
 import net.codingwell.scalaguice.InjectorExtensions._
 
 

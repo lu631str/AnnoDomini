@@ -3,15 +3,21 @@ import controller._
 import model._
 import java.util.Scanner
 
+import com.google.inject.Guice
 import controller.ControllerInterface
-import model.modelBaseImpl.Table
+import model.modelBaseImpl.{Table, TableBuilder}
 import controller.controllerBase.Controller
+import net.codingwell.scalaguice.InjectorExtensions._
+
 
 
 object AnnoDomini {
+  val injector = Guice.createInjector(new AnnoDominiModule())
   val controller = new Controller(Table(Nil, Nil, Nil))
   val tui : Tui = Tui(controller)
   controller.notifyObservers
+
+
   val scanner = new Scanner(System.in)
   def main(args: Array[String]): Unit = {
     println("Wilkommen bei AnnoDomini!!!")
@@ -20,7 +26,10 @@ object AnnoDomini {
     println("Enter how many players want to play?")
     val players = 1 // scanner.nextInt()
 
-    controller.createRandomTable(players)
+    val tb = new TableBuilder
+    tb.buildTable()
+    controller.setTable(tb.getTable)
+
     do {
       tui.showField()
       tui.askForAction()

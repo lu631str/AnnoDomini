@@ -1,11 +1,12 @@
 package controller
 import model._
+import model.modelBaseImpl.Table
 import util._
 
 trait ControllerInterface extends Observable{
 
 
-  def createRandomTable(players:Int)
+  def setTable(table: Table): Unit
   def tableToString:String
   def draw(x:Int)
   def draw

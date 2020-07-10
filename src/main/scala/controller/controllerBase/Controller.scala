@@ -2,7 +2,6 @@ package controller.controllerBase
 
 import controller.ControllerInterface
 import model._
-import model.modelBaseImpl.{Table, TableBuilder}
 import util._
 import com.google.inject.{AbstractModule, Guice, Inject}
 import net.codingwell.scalaguice.ScalaModule
@@ -11,6 +10,7 @@ import net.codingwell.scalaguice.InjectorExtensions._
 
 class Controller @Inject() (var table:TableInterface) extends ControllerInterface  {
   val undoManager = new UndoManager
+  val injector = Guice.createInjector(new AnnoDominiModule())
 
   def tableToString: String = table.showCards
 
@@ -44,8 +44,12 @@ class Controller @Inject() (var table:TableInterface) extends ControllerInterfac
     notifyObservers
   }
 
-  def setTable(table: Table): Unit = {
+  def setTable(table: TableInterface): Unit = {
     this.table = table
+  }
+
+  def createTable() = {
+    table = injector.getInstance(classOf[TableInterface])
   }
 
 }

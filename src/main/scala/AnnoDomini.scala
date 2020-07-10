@@ -1,6 +1,4 @@
 import view._
-import controller._
-import model._
 import java.util.Scanner
 
 import com.google.inject.Guice
@@ -13,7 +11,7 @@ import net.codingwell.scalaguice.InjectorExtensions._
 
 object AnnoDomini {
   val injector = Guice.createInjector(new AnnoDominiModule())
-  val controller = new Controller(Table(Nil, Nil, Nil))
+  val controller = injector.getInstance(classOf[ControllerInterface])
   val tui : Tui = Tui(controller)
   controller.notifyObservers
 

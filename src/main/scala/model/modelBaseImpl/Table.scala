@@ -39,6 +39,7 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]) extend
 
   }
 
+
   def returnTable: Table = return Table(cards,players,deck)
 
   def returnHand: List[Card] = players.head.hand
@@ -88,4 +89,17 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]) extend
 
     }
 
+
+  def setCheckCardOrder: Boolean = {
+    val sortedList = cards.sortWith(_.date < _.date)
+    if (sortedList.equals(cards)) {
+      true
+    } else {
+      false
+    }
+
   }
+
+
+  }
+

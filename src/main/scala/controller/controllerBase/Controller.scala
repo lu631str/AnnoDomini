@@ -2,7 +2,7 @@ package controller.controllerBase
 
 import java.lang.ModuleLayer.Controller
 
-import controller.{ControllerInterface, GameChange, PlayerPlaceCommand, creat}
+import controller.{ControllerInterface, GameChange, PlayerPlaceCommand, end}
 import model._
 import model.modelBaseImpl.{Card, Table, TableBuilder}
 import util._
@@ -19,7 +19,7 @@ class Controller (var table:TableInterface) extends ControllerInterface with Pub
     val tb = new TableBuilder
     tb.buildTable()
     table = tb.getTable
-    publish(new creat)
+    publish(new GameChange)
   }
 
   def tableToString: String = table.showCards
@@ -73,10 +73,22 @@ class Controller (var table:TableInterface) extends ControllerInterface with Pub
     table = table.placeCard(cardIdx, position)
     publish(new GameChange)
   }
+  def setCheckCardOrder: Boolean = {
+    table.setCheckCardOrder
+  }
 
   def checkCardOrder: Boolean = {
+    publish(new end)
     table.checkCardOrder
+
   }
+
+
+
+
+
+
+
   def doStep(p:    PlayerPlaceCommand): Unit ={
     undoManager.doStep( p:    PlayerPlaceCommand)
     publish(new GameChange)

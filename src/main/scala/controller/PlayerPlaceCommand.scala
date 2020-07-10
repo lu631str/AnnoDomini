@@ -14,7 +14,7 @@ class PlayerPlaceCommand(idxd:Int, idxs:Int, controller: Controller) extends Com
     undoList1 = tempList
     undoList2 = templist2
     tempList = controller.table.givecardsacard(idxd, idxs)
-    templist2 = controller.table.takeacardfromplayer(idxs)
+    templist2 = controller.table.takeacardfromplayer(idxd)
 
     controller.table = Table(tempList,List(Player(controller.table.returnName, templist2)), controller.table.returnDeck)
 

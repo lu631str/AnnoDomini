@@ -33,6 +33,7 @@ trait ControllerInterface extends Publisher {
 
   def takeacardfromplayer(idxs:Int): List[Card]
 
+
   def returnTable:Table
 
   def returnDeck: List[Card]
@@ -45,6 +46,8 @@ trait ControllerInterface extends Publisher {
 
   def checkCardOrder: Boolean
 
+  def setCheckCardOrder: Boolean
+
   def undo()
 
   def redo()
@@ -54,11 +57,13 @@ trait ControllerInterface extends Publisher {
   def getCardTextFromCards(idx: Int): String
 
 
+
+
   import scala.swing.event.Event
 
 }
 
-  class creat extends Event
+  class end extends Event
   class GameChange extends Event
 
 

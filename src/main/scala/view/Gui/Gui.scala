@@ -1,9 +1,9 @@
 package view.Gui
 
-import controller.{ControllerInterface, GameChange, PlayerPlaceCommand}
+import controller.{ControllerInterface, GameChange, PlayerPlaceCommand, end}
 import controller.controllerBase.Controller
 import javax.swing.border.LineBorder
-import model.modelBaseImpl.{Card, Player, Table}
+import model.modelBaseImpl.{Card, CardStack, Player, Table}
 
 import scala.swing.Publisher
 import scala.swing._
@@ -20,6 +20,23 @@ class Gui(controller: ControllerInterface) extends MainFrame {
   var index = 0
   var currentButton = ""
   var isHandSelected = false
+  var status = controller.setCheckCardOrder
+
+
+
+
+
+
+
+  def statusasstring: String = {
+    if (status){
+      return "Won"
+    }else{
+      return "Lost"
+    }
+
+  }
+
 
 
 
@@ -33,13 +50,15 @@ class Gui(controller: ControllerInterface) extends MainFrame {
 
 
   def deck = new BoxPanel(Orientation.Horizontal) {
-    val button = new Button("Deck")
+    val button = new Button("Decks")
+
+
+
 
     button.font = new Font("Verdana", 5, 10)
     button.preferredSize = (new Dimension(200, 360))
     button.maximumSize_=(new Dimension(200, 360))
     button.minimumSize_=(new Dimension(200, 360))
-
     contents += button
     listenTo(button)
     background = java.awt.Color.WHITE
@@ -59,27 +78,27 @@ class Gui(controller: ControllerInterface) extends MainFrame {
 
 
   def cardPanelCards = new BoxPanel(Orientation.Horizontal) {
-    val button2 = new Button("")
-    contents += button2
-    button2.font = new Font("Verdana", 5, 10)
-    button2.preferredSize = (new Dimension(20, 360))
-    button2.maximumSize_=(new Dimension(20, 360))
-    button2.minimumSize_=(new Dimension(20, 360))
+
+
     for (i <- 0 to controller.getListleghtFromCards - 1) {
 
-      val button2 = new Button(""){
+
+      val button2 = new Button("") {
         listenTo(this)
 
         reactions += {
           case e: ButtonClicked =>
-            if(isHandSelected){
-              //controller.placeCard(index , i+1)
-              var controller2 = controller.returnController
-              var command = new PlayerPlaceCommand(index, i+1, controller2)
-              controller.doStep(command)
-              println(currentButton)
-            }
 
+            if (isHandSelected) {
+              //controller.placeCard(index , i)
+              var controller2 = controller.returnController
+              var command = new PlayerPlaceCommand(index, i, controller2)
+              status = controller.setCheckCardOrder
+              controller.doStep(command)
+              status = controller.setCheckCardOrder
+              println(currentButton)
+
+            }
 
 
         }
@@ -88,7 +107,6 @@ class Gui(controller: ControllerInterface) extends MainFrame {
 
 
       val button = new Button(controller.getCardTextFromCards(i))
-
 
       button.font = new Font("Verdana", 5, 10)
       button.preferredSize = (new Dimension(200, 360))
@@ -101,16 +119,21 @@ class Gui(controller: ControllerInterface) extends MainFrame {
       button2.minimumSize_=(new Dimension(20, 360))
 
 
-      contents += button
       contents += button2
+      contents += button
+
+
+
 
       listenTo(button)
       listenTo(button2)
       background = java.awt.Color.WHITE
       listenTo(controller)
 
+
       reactions += {
         case ButtonClicked(`button`) => {
+          status = controller.setCheckCardOrder
           repaint()
 
         }
@@ -118,7 +141,41 @@ class Gui(controller: ControllerInterface) extends MainFrame {
 
     }
 
+    val button3 = new Button("") {
+      listenTo(this)
+
+      reactions += {
+        case e: ButtonClicked =>
+
+          if (isHandSelected) {
+            //controller.placeCard(index , i)
+            var controller2 = controller.returnController
+            var command = new PlayerPlaceCommand(index, controller.getListleghtFromCards, controller2)
+            status = controller.setCheckCardOrder
+            controller.doStep(command)
+            status = controller.setCheckCardOrder
+            println(currentButton)
+
+          }
+
+
+      }
+
+
+
+    }
+    button3.font = new Font("Verdana", 5, 10)
+    button3.preferredSize = (new Dimension(20, 360))
+    button3.maximumSize_=(new Dimension(20, 360))
+    button3.minimumSize_=(new Dimension(20, 360))
+    contents += button3
   }
+
+
+
+
+
+
 
 
   def cardPanelPlayer = new BoxPanel(Orientation.Horizontal) {
@@ -145,7 +202,7 @@ class Gui(controller: ControllerInterface) extends MainFrame {
       }
 
 
-        button.font = new Font("Verdana", 5, 10)
+      button.font = new Font("Verdana", 5, 8)
       button.preferredSize = (new Dimension(200, 360))
       button.maximumSize_=(new Dimension(200, 360))
       button.minimumSize_=(new Dimension(200, 360))
@@ -159,6 +216,7 @@ class Gui(controller: ControllerInterface) extends MainFrame {
       reactions += {
         case ButtonClicked(`button`) => {
           isHandSelected = true
+          status = controller.setCheckCardOrder
 
 
 
@@ -191,8 +249,71 @@ class Gui(controller: ControllerInterface) extends MainFrame {
 
   reactions += {
     case event: GameChange => redraw
+    case event: end =>{
+      status = controller.setCheckCardOrder
+      end
+    }
+
 
   }
+
+  def end:Unit ={
+  contents = new BorderPanel {
+
+    add(cardPanelPlayer, BorderPanel.Position.Center)
+    add(cardPanelCards, BorderPanel.Position.North)
+    add(deck, BorderPanel.Position.East)
+    add(endText, (BorderPanel.Position.South))
+
+  }
+
+  }
+
+
+  def endText = new BoxPanel(Orientation.Horizontal) {
+
+
+    var cards = controller.returnCards
+
+    var cards2 = List[Int]()
+
+    for (i <- 0 to cards.length -1){
+
+      cards2 = cards2 :+ cards(i).date
+
+    }
+    val textfield = new TextField("You:" + statusasstring + " " + cards2.mkString(","))
+    listenTo(textfield)
+
+
+
+
+
+
+
+
+    if(status)
+      textfield.background = java.awt.Color.GREEN
+    else
+      textfield.background = java.awt.Color.RED
+
+    textfield.font = new Font("Verdana", 5, 80)
+    textfield.preferredSize = (new Dimension(1600, 180))
+    textfield.maximumSize_=(new Dimension(1600, 180))
+    textfield.minimumSize_=(new Dimension(1600, 180))
+
+    contents += textfield
+    listenTo(textfield)
+
+    listenTo(controller)
+
+
+
+  }
+
+
+
+
 
   def redraw = {
 
@@ -213,7 +334,7 @@ class Gui(controller: ControllerInterface) extends MainFrame {
 
 object GuiProgramOne {
   def main(args: Array[String]) {
-    val controller: Controller = new Controller(Table(List(Card("Test1", 1800), Card("Test2", 1800), Card("Test3", 1800)), List(Player("player 1", List(Card("Test4", 1802), Card("Test5", 1802), Card("Test6", 1802)))), List(Card("Test7", 1803), Card("Test8", 1803), Card("Test9", 1803))))
+    val controller: Controller = new Controller(Table(List(Card("Test1", 1), Card("Test2", 2), Card("Test3", 3)), List(Player("player 1", List(Card("Test4", 4), Card("Test5", 5), Card("Test6", 6)))), CardStack.initialize))
     val gui = new Gui(controller)
     var index = gui.index
 

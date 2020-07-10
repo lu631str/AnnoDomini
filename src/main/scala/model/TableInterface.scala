@@ -21,6 +21,8 @@ trait TableInterface {
   def placeCard(idxPlayerCard: Int, idxPositionAtTable: Int): Table
   def drawCard(x: Int): Table
   def checkCardOrder: Boolean
+  def setCheckCardOrder: Boolean
+
 }
 
 trait PlayerInterface {

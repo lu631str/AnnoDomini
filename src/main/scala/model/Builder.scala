@@ -5,6 +5,4 @@ abstract class Builder(){
   def buildCards()
   def buildPlayers()
   def buildDeck()
-
-
 }

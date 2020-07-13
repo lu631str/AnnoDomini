@@ -38,6 +38,7 @@ class PlayerSpec extends WordSpec with Matchers {
 
         }
       "select Card" in {
+        player.selectCard(1) should be (Card("Test",1800),Player("Your Name", Nil))
         player.selectCard(1).isInstanceOf[Card] should be (false)
 
       }

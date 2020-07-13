@@ -43,9 +43,17 @@ class PlayerSpec extends WordSpec with Matchers {
 
       }
       "addCardAt" in {
+        player.addCardAt(0, Card("lala",123)) should be (Player("Your Name", List(Card("lala",123), Card("Test",1800) )))
         player.addCardAt(0, Card("lala",123)).isInstanceOf[Card] should be (false)
 
       }
+      "a patch method" in {
+        player.hand.patch(0, Nil, 1) should be (Nil)
+
+
+      }
+
+
 
 
 

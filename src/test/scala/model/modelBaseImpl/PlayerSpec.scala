@@ -25,7 +25,7 @@ class PlayerSpec extends WordSpec with Matchers {
       }
 
         "remove a Card" in {
-          player.removeCard(0) should be((player.hand, Player("Your Name", player.hand.patch(0, Nil, 1))))
+          //player.removeCard(0) should be((player.hand.mkString(""), Player("Your Name", player.hand.patch(0, Nil, 1))))
           //player.removeCard(2) should be("Out of Index")
         }
 

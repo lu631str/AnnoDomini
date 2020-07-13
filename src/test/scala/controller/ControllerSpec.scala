@@ -19,8 +19,7 @@ class ControllerSpec extends WordSpec with Matchers {
 
       }
       "have a string presentation" in {
-        //TODO
-       //controller.tableToString should be ("Field:\nCard 9\n Player1:\nCard8")
+       controller.tableToString should be ("Field:\nCard 9\n Player1:\nCard8")
       }
       "have a method to draw cards" in {
         controller.draw(1)  should be (())
@@ -31,6 +30,10 @@ class ControllerSpec extends WordSpec with Matchers {
       }
       "have a method to check the card order" in {
         controller.checkCardOrder should be (controller.table.checkCardOrder)
+
+      }
+      "have a method to get Card Text From Player" in {
+        controller.getCardTextFromPlayer(0) should be(controller.table.getCardTextFromPlayer(0))
 
       }
     }

@@ -28,9 +28,6 @@ class TabledSpec extends WordSpec with Matchers {
       //}
 
 
-
-
-
       "have a method to show cards on the 'field'" in {
         table.showCards should be ("Feld:\n" + List(Card("Test1", 1800)).mkString(", ") + "\n" + table.players.map(p => p.showHand).mkString("\n"))
       }
@@ -52,13 +49,105 @@ class TabledSpec extends WordSpec with Matchers {
         table.checkCardOrder should be(true)
         table.placeCard(0,0).checkCardOrder should be(false)
       }
+
+      "have a  second method check, which checks whether the card.dates are in the right order" in{
+        table.setCheckCardOrder should be(true)
+        table.placeCard(0,0).setCheckCardOrder should be(false)
+      }
+
+
       "have a nice string presentation" in {
         table.toString should be (table.showCards)
+      }
+      "have a method to draw a Card'" in {
+        table.drawCard(0).isInstanceOf[Table] should be  (true)
+      }
+      "have a method to give cards a card'" in {
+        table.givecardsacard(0,0) should be (List(Card("Test2", 1802), Card("Test1", 1800)))
+      }
+      "have a method to take a cards a card'" in {
+        table.takeacardfromplayer(0) should be (Nil)
+      }
 
-
+      "have a method to return Table" in {
+        table.returnTable should be (table)
+      }
+      "have a method to return Hand" in {
+        table.returnHand should be (table.players.head.hand)
+      }
+      "have a method to return Deck" in {
+        table.returnDeck should be (table.deck)
+      }
+      "have a method to return Name from player" in {
+        table.returnName should be (table.players.head.name)
+      }
+      "have a method to return Cards" in {
+        table.returnCards should be (table.cards)
+      }
+      "have a method to set Players name" in {
+        table.setPlayerName("player2") should be ()
+      }
+      "have a method to get Card text from Player" in {
+        table.getCardTextFromPlayer(0) should be ("Test2")
+      }
+      "have a method to get Card text from Cards" in {
+        table.getCardTextFromCards(0) should be ("Test1")
+      }
+      "have a method to get leght from Hand" in {
+        table.getListleghtFromPlayer should be (1)
+      }
+      "have a method to get leght from cards" in {
+        table.getListleghtFromCards should be (1)
       }
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
   the field
   has laid down cards,

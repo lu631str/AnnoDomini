@@ -27,6 +27,7 @@ class PlayerSpec extends WordSpec with Matchers {
         "remove a Card" in {
           //player.removeCard(0) should be((player.hand.mkString(""), Player("Your Name", player.hand.patch(0, Nil, 1))))
           //player.removeCard(2) should be("Out of Index")
+          player.removeCard(0).isInstanceOf[Card] should be (false)
         }
 
         "have a nice String representation" in {
@@ -36,6 +37,16 @@ class PlayerSpec extends WordSpec with Matchers {
           player.showHand should be("Your Name:\n" + Card("Test", 1800) + "\n")
 
         }
+      "select Card" in {
+        player.selectCard(1).isInstanceOf[Card] should be (false)
+
+      }
+      "addCardAt" in {
+        player.addCardAt(0, Card("lala",123)).isInstanceOf[Card] should be (false)
+
+      }
+
+
 
       }
     }

@@ -202,7 +202,7 @@ class Gui(controller: ControllerInterface) extends MainFrame {
       }
 
 
-      button.font = new Font("Verdana", 5, 8)
+      button.font = new Font("Verdana", 5, 10)
       button.preferredSize = (new Dimension(200, 360))
       button.maximumSize_=(new Dimension(200, 360))
       button.minimumSize_=(new Dimension(200, 360))
@@ -334,7 +334,7 @@ class Gui(controller: ControllerInterface) extends MainFrame {
 
 object GuiProgramOne {
   def main(args: Array[String]) {
-    val controller: Controller = new Controller(Table(List(Card("Test1", 1), Card("Test2", 2), Card("Test3", 3)), List(Player("player 1", List(Card("Test4", 4), Card("Test5", 5), Card("Test6", 6)))), CardStack.initialize))
+    val controller: Controller = new Controller(Table(List(Card("MauerFall", 1989 )), List(Player("player 1", List(Card("Mord Kennedy",1963), Card("Anfang 1.Weltkrieg", 1914), Card("1. Telefongespräch", 1881)))), CardStack.initialize))
     val gui = new Gui(controller)
     var index = gui.index
 

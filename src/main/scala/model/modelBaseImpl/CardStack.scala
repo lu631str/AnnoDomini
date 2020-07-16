@@ -1,8 +1,7 @@
 package model.modelBaseImpl
 
 object CardStack {
-val initialize:List[Card]= List(Card("test", 55),Card("Sarah und Lukas erstellen eine virtuelle version von Anno Domini",2020),
-  Card("Die erste Postanweisung",817),
+val initialize:List[Card]= List(Card("Die erste Postanweisung",817),Card("Sarah und Lukas erstellen eine virtuelle version von Anno Domini",2020),
   Card("Der Arzt C.g. Kratzenstein versucht als erste, gelähmte Glieder durch elektrischen Schlag zu heilen", 1744),
   Card("In den Bergwerken von Newcastle werden die ersten Schienen verlegt",1608),
   Card("Thomas Newcomen baut die erste Dampfmaschine für den praktischen Gebrauch",1711),

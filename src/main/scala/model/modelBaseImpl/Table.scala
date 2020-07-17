@@ -39,6 +39,10 @@ case class Table(cards:List[Card], players:List[Player], deck:List[Card]) extend
 
   }
 
+  def createTable(cards:List[Card], players: List[Player], deck: List[Card]) = {
+    Table(cards, players, deck)
+  }
+
   def returnHand: List[Card] = players.head.hand
 
   def returnDeck: List[Card] = deck

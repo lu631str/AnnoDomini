@@ -2,37 +2,31 @@ package controller.controllerBase
 
 import controller.ControllerInterface
 import model._
-import model.modelBaseImpl.{Table, TableBuilder}
 import util._
+import com.google.inject.{AbstractModule, Guice, Inject}
+import injection.AnnoDominiModule
+import model.modelBaseImpl.Table
+import net.codingwell.scalaguice.ScalaModule
+import net.codingwell.scalaguice.InjectorExtensions._
 
 
-class Controller (var table:TableInterface) extends ControllerInterface  {
+class Controller @Inject() (var table:TableInterface) extends ControllerInterface {
   val undoManager = new UndoManager
-
-
-  def createRandomTable(players:Int):Unit = {
-    val tb = new TableBuilder
-    tb.buildTable()
-    table = tb.getTable
-    notifyObservers
-  }
+  val injector = Guice.createInjector(new AnnoDominiModule())
 
   def tableToString: String = table.showCards
 
-  def draw(x:Int): Unit ={
+  def draw(x: Int): Unit = {
     table = table.pDraw(x)
     notifyObservers
-
   }
-  def draw(): Unit ={
+
+  def draw(): Unit = {
     table = table.pDraw
     notifyObservers
   }
 
-
-
-
-  def placeCard(cardIdx:Int, position:Int): Unit = {
+  def placeCard(cardIdx: Int, position: Int): Unit = {
     table = table.placeCard(cardIdx, position)
     notifyObservers
   }
@@ -42,15 +36,21 @@ class Controller (var table:TableInterface) extends ControllerInterface  {
     table.checkCardOrder
   }
 
-  def undo(): Unit ={
+  def undo(): Unit = {
     undoManager.undoStep
     notifyObservers
   }
 
-  def redo(): Unit ={
+  def redo(): Unit = {
     undoManager.redoStep
     notifyObservers
   }
 
+  def createTable() = {
+    table = injector.getInstance(classOf[TableInterface])
+  }
 
+  def setTable(newTable: TableInterface): Unit = {
+    table = newTable
+  }
 }

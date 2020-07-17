@@ -3,7 +3,7 @@ package model.fileIOComponents.fileIOXmlImpl
 
 import model.TableInterface
 import model.fileIOComponents.FileIOInterface
-
+import model.modelBaseImpl.TableBuilder
 import scala.xml.PrettyPrinter
 
 
@@ -28,7 +28,9 @@ class FileIO extends FileIOInterface {
     </table>
   }
 
-  def tableFromXml()
+  def tableFromXml(): TableInterface = {
+
+  }
 }
 
 object FileIO {

@@ -13,6 +13,10 @@ trait TableInterface {
   def placeCard(idxPlayerCard: Int, idxPositionAtTable: Int): Table
   def drawCard(x: Int): Table
   def checkCardOrder: Boolean
+
+  def getCards: List[Card]
+  def getPlayers: List[Player]
+  def getDeck: List[Card]
 }
 
 trait PlayerInterface {
